@@ -77,19 +77,24 @@ int main(void)
     Shader shader("../src/base.vert","../src/base.frag");
     //glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
     // loading image
-    int texture = createTexture("../src/tp0n3p08.png");
-    int texture2 = createTexture("../src/xd3n2c08.png");
+    int texture = createTexture("../src/aerial_grass_rock_diff_1k.jpg");
+    int texture2 = createTexture("../src/Flames.jpg");
+    shader.use();
+    glUniform1i(glGetUniformLocation(shader.ID,"tex"),0);
+    glUniform1i(glGetUniformLocation(shader.ID,"tex2"),1);
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClearColor(0.2f,0.2f,0.2f,1.0f);
+
         glClear(GL_COLOR_BUFFER_BIT);
-        shader.use();
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D,texture);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D,texture2);
+
+        shader.use();
         glBindVertexArray(VAO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);
         glDrawElements(GL_TRIANGLES,sizeof(indices) / sizeof(float),GL_UNSIGNED_INT,0);
