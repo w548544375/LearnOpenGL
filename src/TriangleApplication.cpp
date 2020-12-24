@@ -306,7 +306,7 @@ void TriangleApplication::createLogicalDevice()
 {
         QueueFamilyIndices indices = findQueueFamilies(physicalDevice);
         std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
-        std::set<uint32_t> uniqueQueueFamilies = {indices.graphicsFamily.value(),indices.presentFamily.value()};
+       std::set<uint32_t> uniqueQueueFamilies = {indices.graphicsFamily.value(), indices.presentFamily.value()};
         float queuePriority = 1.0f;
         for(uint32_t queueFamily : uniqueQueueFamilies)
         {
@@ -330,7 +330,7 @@ void TriangleApplication::createLogicalDevice()
 
         createInfo.pEnabledFeatures = &deviceFeatures;
         createInfo.enabledExtensionCount = static_cast<uint32_t>(deviceExtensions.size());
-        createInfo.ppEnabledLayerNames = deviceExtensions.data();
+        createInfo.ppEnabledExtensionNames = deviceExtensions.data();
 
         if(enableValidataionLayers) {
             createInfo.enabledLayerCount = static_cast<uint32_t>(validationLayers.size());
