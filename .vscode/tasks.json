@@ -77,7 +77,7 @@
 				"/EHsc",
 				"/Fe:",
 			    "${workspaceFolder}\\build\\hello_vulkan.exe",
-			    "${workspaceFolder}\\src\\TriangleApplication.cpp",
+				"${workspaceFolder}\\src\\TriangleApplication.cpp",
 				"${workspaceFolder}\\src\\hello_vulkan.cpp",
 				"/link",
 				"/INCREMENTAL:NO",
