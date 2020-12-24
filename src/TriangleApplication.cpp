@@ -2,10 +2,16 @@
 
 const int WIDTH = 800;
 const int HEIGHT= 600;
-
+#if defined(__linux__) || defined(__linux)
+const std::vector<const char*> validationLayers = {
+  "VK_LAYER_LUNARG_standard_validation"  
+};
+#else
 const std::vector<const char*> validationLayers = {
   "VK_LAYER_KHRONOS_validation"  
 };
+#endif
+
 
 const std::vector<const char *> deviceExtensions = {
     VK_KHR_SWAPCHAIN_EXTENSION_NAME
@@ -157,7 +163,7 @@ bool TriangleApplication::checkValidationLayerSupport()
         bool layerFound = false;
         for(const auto& layerProperty : availableLayers)
         {
-            //std::cout << layerProperty.layerName << std::endl;
+            std::cout << layerProperty.layerName << std::endl;
             if(strcmp(layerName,layerProperty.layerName) == 0){
                 layerFound = true;
                 break;
