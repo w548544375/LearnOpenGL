@@ -1,5 +1,7 @@
 {
     "files.associations": {
         "*.tcc": "cpp"
-    }
+    },
+    "terminal.integrated.shellArgs.windows": ["-NoExit", "/c", "chcp 65001"],
+    "terminal.integrated.fontFamily": "Lucida Console"
 }

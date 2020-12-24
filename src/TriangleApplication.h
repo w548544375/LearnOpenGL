@@ -1,7 +1,13 @@
 #ifndef _TRIANGLE_APPLICATION_H
 #define _TRIANGLE_APPLICATION_H
 #define GLFW_INCLUDE_VULKAN
+
+#if defined(_WIN64) || defined(__WIN64__) || defined(WIN64)
+#include "GLFW/glfw3.h"
+#include <cstring>
+#else
 #include <GLFW/glfw3.h>
+#endif
 #include <iostream>
 #include <stdexcept>
 #include <functional>
@@ -10,7 +16,8 @@
 #include <sstream>
 #include <optional>
 #include <set>
-#include <cstring>
+
+
 struct QueueFamilyIndices {
     std::optional<uint32_t> graphicsFamily;
     std::optional<uint32_t> presentFamily;

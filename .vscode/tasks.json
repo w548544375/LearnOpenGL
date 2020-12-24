@@ -55,6 +55,50 @@
 				"isDefault": true
 			},
 			"detail": "compiler: /usr/bin/clang++"
-		}
+		},
+		{
+			"type": "cppbuild",
+			"label": "Build Vulkan For Windows",
+			"command": "cl.exe",
+			"detail": "compiler: cl.exe",
+			"args": [
+				"/arch:AVX",
+				"/std:c++17",
+				"/I\"${workspaceFolder}/dependices/GLFW/include\"",
+				"/I\"D:/VulkanSDK/1.2.162.0/Include\"",
+				"/GS",
+				"/GL",
+				"/W3",
+				"/Gy",
+				"/MD",
+				"/Zi",
+				"/nologo",
+				"/Zc:wchar_t",
+				"/EHsc",
+				"/Fe:",
+			    "${workspaceFolder}\\build\\hello_vulkan.exe",
+			    "${workspaceFolder}\\src\\TriangleApplication.cpp",
+				"${workspaceFolder}\\src\\hello_vulkan.cpp",
+				"/link",
+				"/INCREMENTAL:NO",
+				"/MACHINE:x64",
+				//"/VERBOSE",
+				"user32.lib",
+				"gdi32.lib",
+				"shell32.lib",
+				"glfw3.lib",
+				"vulkan-1.lib",
+				"/LIBPATH:\"${workspaceFolder}/dependices/GLFW/lib-vc2019\"",
+				"/LIBPATH:\"D:\\VulkanSDK\\1.2.162.0\\Lib\""
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": ["$msCompile"],
+			"group": {
+			  "kind": "build",
+			  "isDefault": true
+			}
+		  }
 	]
 }
