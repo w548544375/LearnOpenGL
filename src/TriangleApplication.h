@@ -15,7 +15,7 @@
 #include <sstream>
 #include <optional>
 #include <set>
-
+#include <fstream>
 
 struct QueueFamilyIndices {
     std::optional<uint32_t> graphicsFamily;
@@ -43,6 +43,13 @@ class TriangleApplication {
         VkQueue  graphicsQueue;
         VkSurfaceKHR surface;
         VkQueue  presentQueue;
+        VkSwapchainKHR swapChain;
+        std::vector<VkImage> swapChainImages;
+        VkFormat swapChainImageFormat;
+        VkExtent2D swapChainExtent;
+        std::vector<VkImageView> swapChainImageViews;
+        VkRenderPass renderPass;
+        VkPipelineLayout pipelineLayout;
     private:
         void initWindow();
         void initVulkan();
@@ -77,6 +84,21 @@ class TriangleApplication {
 
         bool checkDeviceExtensionSupport(VkPhysicalDevice device);
         SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
+
+        VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats);
+        VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
+        VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
+        void createSwapChain();
+
+
+        void createImageViews();
+
+
+        void createGraphicsPipeline();
+        VkShaderModule createShaderModule(const std::vector<char>& code);
+        static std::vector<char> readFile(const std::string& filename);
+
+        void createRenderPass();
 };
 
 #endif
