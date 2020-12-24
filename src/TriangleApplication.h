@@ -4,7 +4,6 @@
 
 #if defined(_WIN64) || defined(__WIN64__) || defined(WIN64)
 #include "GLFW/glfw3.h"
-#include <cstring>
 #else
 #include <GLFW/glfw3.h>
 #endif
