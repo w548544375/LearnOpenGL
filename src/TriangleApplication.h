@@ -10,6 +10,7 @@
 #include <sstream>
 #include <optional>
 #include <set>
+#include <cstring>
 struct QueueFamilyIndices {
     std::optional<uint32_t> graphicsFamily;
     std::optional<uint32_t> presentFamily;

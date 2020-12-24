@@ -10,11 +10,39 @@
 				"${file}",
 				"${workspaceFolder}/src/common/Shader.cpp",
 				"${workspaceFolder}/src/common/stb_image.cpp",
+				"-I${workspaceFolder}/dependices",
 				"-lglfw",
 				"-lGLEW",
 				"-lGL",
 				"-o",
 				"${workspaceFolder}/build/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compiler: /usr/bin/clang++"
+		},
+		{
+			"type": "cppbuild",
+			"label": "buildVulkan_linux",
+			"command": "/usr/bin/clang++",
+			"args": [
+				"-std=c++17",
+				"-g",
+				"${workspaceFolder}/src/hello_vulkan.cpp",
+				"${workspaceFolder}/src/TriangleApplication.cpp",
+				"-I${workspaceFolder}/dependices",
+				"-lglfw",
+				"-lvulkan",
+				"-o",
+				"${workspaceFolder}/build/hello_vulkan"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"

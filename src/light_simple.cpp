@@ -209,7 +209,7 @@ void placeCube(Shader & shader)
        // glUniform3f(glGetUniformLocation(shader.ID,"material.specular"), 0.5f, 0.5f, 0.5f);
         glUniform1f(glGetUniformLocation(shader.ID,"material.shininess"), 16.0f);
         glUniform3fv(glGetUniformLocation(shader.ID,"viewPos"),1,glm::value_ptr(model));
-
+        
         glm::vec3 lightColor;
         lightColor.x = sin(glfwGetTime() * 2.0f);
         lightColor.y = sin(glfwGetTime() * 0.7f);
